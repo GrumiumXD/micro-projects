@@ -21,7 +21,11 @@ type Controller struct {
 	last    time.Time
 }
 
-func NewController(buttons [4]machine.Pin, mod machine.Pin) *Controller {
+func NewController() *Controller {
+	buttons := [4]machine.Pin{pin_0, pin_1, pin_2, pin_3}
+
+	mod := pin_mod
+
 	ctrl := &Controller{
 		buttons: buttons,
 		mod:     mod,

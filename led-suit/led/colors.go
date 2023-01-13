@@ -1,4 +1,4 @@
-package main
+package led
 
 import (
 	"image/color"
@@ -56,7 +56,7 @@ var BLACK = color.RGBA{
 	255,
 }
 
-func fill(buf []color.RGBA, color color.RGBA) {
+func FillBuffer(buf []color.RGBA, color color.RGBA) {
 	buf[0] = color
 
 	for i := 1; i < len(buf); i *= 2 {

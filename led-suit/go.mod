@@ -1,4 +1,4 @@
-module ledtest
+module ledsuit
 
 go 1.19
 
