@@ -14,11 +14,11 @@ func main() {
 	// suit := led.NewLedSuit(led.BK)
 	// suit := led.NewLedSuit(led.GB)
 
-	var patterns = []pattern.Pattern{
+	var patterns = [8]pattern.Pattern{
 		pattern.NewDemoPattern(suit),
 		pattern.NewLegsOnlyPattern(suit),
 		pattern.NewBodyOnlyPattern(suit),
-		pattern.NewArmsOnlyPattern(suit),
+		pattern.NewTrafficPattern(suit),
 		pattern.NewHueShiftPattern(suit),
 		pattern.NewHAlternatePattern(suit),
 		pattern.NewHeartPattern(suit),

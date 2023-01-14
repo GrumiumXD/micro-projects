@@ -16,7 +16,7 @@ func NewHeartPattern(suit *led.LedSuit) Pattern {
 	return &Heart{
 		suit:    suit,
 		timer:   0,
-		forward: true,
+		forward: false,
 		init:    false,
 	}
 }
@@ -43,7 +43,12 @@ func (h *Heart) SetLEDs(tick uint32) {
 		h.init = true
 	}
 
-	hue := 360.0 - float64(h.timer)*0.75
+	var hue float64
+	if h.forward {
+		hue = 300.0 + float64(h.timer)
+	} else {
+		hue = 360.0 - float64(h.timer)
+	}
 
 	r, g, b := led.Hsv2Rgb(hue, 1.0, 1.0)
 	c := color.RGBA{
@@ -55,16 +60,11 @@ func (h *Heart) SetLEDs(tick uint32) {
 	led.FillBuffer(h.suit.GetBuffer(led.RightBody)[count.HBStart:count.HBEnd+1], c)
 	led.FillBuffer(h.suit.GetBuffer(led.Heart)[:], c)
 
-	if h.forward {
-		h.timer = h.timer + 1
-		if h.timer == 79 {
-			h.forward = true
-		}
-	} else {
-		h.timer = h.timer - 1
-		if h.timer == 0 {
-			h.forward = false
-		}
+	h.timer += 1
+
+	if h.timer == 60 {
+		h.forward = !h.forward
+		h.timer = 0
 	}
 }
 

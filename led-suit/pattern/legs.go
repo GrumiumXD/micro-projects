@@ -17,10 +17,10 @@ func NewLegsOnlyPattern(suit *led.LedSuit) Pattern {
 func (l *LegsOnly) SetLEDs(tick uint32) {
 
 	if !l.init {
-		led.FillBuffer(l.suit.GetBuffer(led.LeftLeg)[:], led.WHITE)
+		led.FillBuffer(l.suit.GetBuffer(led.LeftLeg)[:], led.BLUE)
 		led.FillBuffer(l.suit.GetBuffer(led.LeftBody)[:], led.BLACK)
 		led.FillBuffer(l.suit.GetBuffer(led.LeftArm)[:], led.BLACK)
-		led.FillBuffer(l.suit.GetBuffer(led.RightLeg)[:], led.WHITE)
+		led.FillBuffer(l.suit.GetBuffer(led.RightLeg)[:], led.BLUE)
 		led.FillBuffer(l.suit.GetBuffer(led.RightBody)[:], led.BLACK)
 		led.FillBuffer(l.suit.GetBuffer(led.RightArm)[:], led.BLACK)
 		led.FillBuffer(l.suit.GetBuffer(led.Heart)[:], led.BLACK)

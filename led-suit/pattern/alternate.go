@@ -42,8 +42,8 @@ func (a *Alternate) SetLEDs(tick uint32) {
 		a.init = true
 	}
 
-	// update erery 5 ticks
-	if tick%5 == 0 {
+	// update erery 4 ticks
+	if tick%4 == 0 {
 		if a.pos == a.length {
 			// switch side when reaching the end
 			a.pos = 0
@@ -83,7 +83,7 @@ func (a *Alternate) SetLEDs(tick uint32) {
 
 		// body
 		if a.pos >= count.Leg && a.pos < count.Leg+count.Body {
-			index := a.pos - count.Body
+			index := a.pos - count.Leg
 			if a.left {
 				a.suit.GetBuffer(led.LeftBody)[index] = c
 			} else {

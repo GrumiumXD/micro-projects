@@ -91,7 +91,7 @@ func Hsv2Rgb(hue float64, sat float64, val float64) (uint8, uint8, uint8) {
 		r = x
 		g = 0
 		b = c
-	} else if hue >= 300.0 && hue < 360.0 {
+	} else if hue >= 300.0 {
 		r = c
 		g = 0
 		b = x
