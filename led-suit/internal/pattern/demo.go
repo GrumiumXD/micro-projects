@@ -1,6 +1,6 @@
 package pattern
 
-import "ledsuit/led"
+import "ledsuit/internal/led"
 
 type Demo struct {
 	suit *led.LedSuit

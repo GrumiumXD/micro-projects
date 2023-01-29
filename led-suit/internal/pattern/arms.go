@@ -1,6 +1,6 @@
 package pattern
 
-import "ledsuit/led"
+import "ledsuit/internal/led"
 
 type ArmsOnly struct {
 	suit *led.LedSuit

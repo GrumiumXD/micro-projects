@@ -1,9 +1,9 @@
 package main
 
 import (
-	"ledsuit/input"
-	"ledsuit/led"
-	"ledsuit/pattern"
+	"ledsuit/internal/input"
+	"ledsuit/internal/led"
+	"ledsuit/internal/pattern"
 	"time"
 )
 

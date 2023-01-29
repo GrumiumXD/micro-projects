@@ -2,7 +2,7 @@ package pattern
 
 import (
 	"image/color"
-	"ledsuit/led"
+	"ledsuit/internal/led"
 )
 
 type Alternate struct {
