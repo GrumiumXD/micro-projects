@@ -1,14 +1,5 @@
 package led
 
-type PID int
-
-const (
-	GR PID = iota
-	RS
-	BK
-	GB
-)
-
 type LID int
 
 const (
@@ -34,9 +25,9 @@ type LedCount struct {
 	HBEnd int8
 }
 
-func GetLedCount(pid PID) *LedCount {
+func GetLedCount(pid string) *LedCount {
 	switch pid {
-	case GR:
+	case "GR":
 		return &LedCount{
 			Leg:     22,
 			Body:    19,
@@ -45,7 +36,7 @@ func GetLedCount(pid PID) *LedCount {
 			HBStart: 9,
 			HBEnd:   13,
 		}
-	case RS:
+	case "RS":
 		return &LedCount{
 			Leg:     22,
 			Body:    19,
@@ -54,7 +45,7 @@ func GetLedCount(pid PID) *LedCount {
 			HBStart: 9,
 			HBEnd:   13,
 		}
-	case BK:
+	case "BK":
 		return &LedCount{
 			Leg:     22,
 			Body:    19,
@@ -63,7 +54,7 @@ func GetLedCount(pid PID) *LedCount {
 			HBStart: 9,
 			HBEnd:   13,
 		}
-	case GB:
+	case "GB":
 		return &LedCount{
 			Leg:     22,
 			Body:    19,

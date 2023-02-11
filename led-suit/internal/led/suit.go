@@ -24,7 +24,7 @@ type LedSuit struct {
 	count   *LedCount
 }
 
-func NewLedSuit(pid PID) *LedSuit {
+func NewLedSuit(pid string) *LedSuit {
 	count := GetLedCount(pid)
 
 	strips := make([]ws2812.Device, stripCount)

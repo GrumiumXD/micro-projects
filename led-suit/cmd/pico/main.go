@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ledsuit/internal/config"
 	"ledsuit/internal/input"
 	"ledsuit/internal/led"
 	"ledsuit/internal/pattern"
@@ -9,10 +10,7 @@ import (
 
 func main() {
 
-	suit := led.NewLedSuit(led.GR)
-	// suit := led.NewLedSuit(led.RS)
-	// suit := led.NewLedSuit(led.BK)
-	// suit := led.NewLedSuit(led.GB)
+	suit := led.NewLedSuit(config.Selection)
 
 	var patterns = [8]pattern.Pattern{
 		pattern.NewDemoPattern(suit),
