@@ -3,11 +3,11 @@ package pattern
 import "ledsuit/internal/led"
 
 type ArmsOnly struct {
-	suit *led.LedSuit
+	suit led.LedSuit
 	init bool
 }
 
-func NewArmsOnlyPattern(suit *led.LedSuit) Pattern {
+func NewArmsOnlyPattern(suit led.LedSuit) Pattern {
 	return &ArmsOnly{
 		suit: suit,
 		init: false,

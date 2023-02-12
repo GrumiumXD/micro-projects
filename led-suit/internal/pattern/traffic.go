@@ -9,12 +9,12 @@ const (
 )
 
 type Traffic struct {
-	suit  *led.LedSuit
+	suit  led.LedSuit
 	state int8
 	init  bool
 }
 
-func NewTrafficPattern(suit *led.LedSuit) Pattern {
+func NewTrafficPattern(suit led.LedSuit) Pattern {
 	return &Traffic{
 		suit:  suit,
 		state: 0,

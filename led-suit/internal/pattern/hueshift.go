@@ -6,12 +6,12 @@ import (
 )
 
 type HueShift struct {
-	suit *led.LedSuit
+	suit led.LedSuit
 	hue  uint16
 	init bool
 }
 
-func NewHueShiftPattern(suit *led.LedSuit) Pattern {
+func NewHueShiftPattern(suit led.LedSuit) Pattern {
 	return &HueShift{
 		suit: suit,
 		hue:  0,
