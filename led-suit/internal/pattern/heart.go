@@ -1,23 +1,22 @@
 package pattern
 
 import (
-	"image/color"
 	"ledsuit/internal/led"
 )
 
 type Heart struct {
-	suit    led.LedSuit
-	timer   uint8
-	forward bool
-	init    bool
+	suit led.LedSuit
+	init bool
+	on   bool
+	tick uint32
 }
 
 func NewHeartPattern(suit led.LedSuit) Pattern {
 	return &Heart{
-		suit:    suit,
-		timer:   0,
-		forward: false,
-		init:    false,
+		suit: suit,
+		init: false,
+		on:   true,
+		tick: 0,
 	}
 }
 
@@ -43,34 +42,29 @@ func (h *Heart) SetLEDs(tick uint32) {
 		h.init = true
 	}
 
-	var hue float64
-	if h.forward {
-		hue = 300.0 + float64(h.timer)
-	} else {
-		hue = 360.0 - float64(h.timer)
+	if h.tick%4 == 0 {
+		if h.on {
+			// fill the heart parts
+			led.FillBuffer(h.suit.GetBuffer(led.LeftBody)[count.HBStart:count.HBEnd+1], led.MAGENTA)
+			led.FillBuffer(h.suit.GetBuffer(led.RightBody)[count.HBStart:count.HBEnd+1], led.MAGENTA)
+			led.FillBuffer(h.suit.GetBuffer(led.Heart)[:], led.MAGENTA)
+		} else {
+			// fill the heart parts
+			led.FillBuffer(h.suit.GetBuffer(led.LeftBody)[count.HBStart:count.HBEnd+1], led.BLACK)
+			led.FillBuffer(h.suit.GetBuffer(led.RightBody)[count.HBStart:count.HBEnd+1], led.BLACK)
+			led.FillBuffer(h.suit.GetBuffer(led.Heart)[:], led.BLACK)
+		}
+
+		h.on = !h.on
+
 	}
 
-	r, g, b := led.Hsv2Rgb(hue, 1.0, 1.0)
-	c := color.RGBA{
-		r, g, b, 255,
-	}
-
-	// fill the heart parts
-	led.FillBuffer(h.suit.GetBuffer(led.LeftBody)[count.HBStart:count.HBEnd+1], c)
-	led.FillBuffer(h.suit.GetBuffer(led.RightBody)[count.HBStart:count.HBEnd+1], c)
-	led.FillBuffer(h.suit.GetBuffer(led.Heart)[:], c)
-
-	h.timer += 1
-
-	if h.timer == 60 {
-		h.forward = !h.forward
-		h.timer = 0
-	}
+	h.tick++
 }
 
 func (h *Heart) Reset() {
 
-	h.timer = 0
-	h.forward = false
+	h.tick = 0
+	h.on = true
 	h.init = false
 }

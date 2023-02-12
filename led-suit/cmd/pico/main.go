@@ -23,8 +23,8 @@ func main() {
 			pattern.NewAmmeliePattern(suit, led.CYAN),
 			pattern.NewDarkPattern(suit),
 			pattern.NewTetrisPattern(suit, 0),
-			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewHeartPlusPattern(suit, led.WHITE),
+			pattern.NewHeartPattern(suit),
 		}
 	} else if config.Selection == "RS" {
 		patterns = [8]pattern.Pattern{
@@ -34,8 +34,8 @@ func main() {
 			pattern.NewAmmeliePattern(suit, led.ORANGE),
 			pattern.NewDarkPattern(suit),
 			pattern.NewTetrisPattern(suit, 1),
-			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewHeartPlusPattern(suit, led.WHITE),
+			pattern.NewHeartPattern(suit),
 		}
 	} else if config.Selection == "BK" {
 		patterns = [8]pattern.Pattern{
@@ -45,8 +45,8 @@ func main() {
 			pattern.NewAmmeliePattern(suit, led.BRIGHT_GREEN),
 			pattern.NewDarkPattern(suit),
 			pattern.NewTetrisPattern(suit, 2),
-			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewHeartPlusPattern(suit, led.WHITE),
+			pattern.NewHeartPattern(suit),
 		}
 	} else if config.Selection == "GB" {
 		patterns = [8]pattern.Pattern{
@@ -56,8 +56,8 @@ func main() {
 			pattern.NewAmmeliePattern(suit, led.YELLOW),
 			pattern.NewDarkPattern(suit),
 			pattern.NewTetrisPattern(suit, 4),
-			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewHeartPlusPattern(suit, led.WHITE),
+			pattern.NewHeartPattern(suit),
 		}
 	}
 
