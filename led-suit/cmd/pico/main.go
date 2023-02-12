@@ -3,6 +3,7 @@ package main
 import (
 	"ledsuit/internal/config"
 	"ledsuit/internal/input"
+	"ledsuit/internal/led"
 	"ledsuit/internal/pattern"
 	"ledsuit/internal/physical"
 	"time"
@@ -19,7 +20,7 @@ func main() {
 			pattern.NewHellsBellsPattern(suit),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewAmmeliePattern(suit, led.CYAN),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
@@ -30,7 +31,7 @@ func main() {
 			pattern.NewHellsBellsPattern(suit),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewAmmeliePattern(suit, led.ORANGE),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
@@ -41,7 +42,7 @@ func main() {
 			pattern.NewHellsBellsPattern(suit),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewAmmeliePattern(suit, led.BRIGHT_GREEN),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
@@ -52,7 +53,7 @@ func main() {
 			pattern.NewHellsBellsPattern(suit),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewAmmeliePattern(suit, led.YELLOW),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),
 			pattern.NewDarkPattern(suit),

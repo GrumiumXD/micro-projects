@@ -37,6 +37,18 @@ var YELLOW = color.RGBA{
 	0,
 	255,
 }
+var ORANGE = color.RGBA{
+	uint8(255 * BRIGHTNESS),
+	uint8(128 * BRIGHTNESS),
+	0,
+	255,
+}
+var BRIGHT_GREEN = color.RGBA{
+	uint8(128 * BRIGHTNESS),
+	uint8(255 * BRIGHTNESS),
+	0,
+	255,
+}
 var CYAN = color.RGBA{
 	0,
 	uint8(255 * BRIGHTNESS),

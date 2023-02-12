@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ledsuit/internal/led"
 	"ledsuit/internal/pattern"
 	"log"
 
@@ -21,7 +22,7 @@ func NewGame() *Game {
 	var patterns = [8]pattern.Pattern{
 		pattern.NewDarkPattern(suit),
 		pattern.NewHellsBellsPattern(suit),
-		pattern.NewBodyOnlyPattern(suit),
+		pattern.NewAmmeliePattern(suit, led.ORANGE),
 		pattern.NewTrafficPattern(suit),
 		pattern.NewHueShiftPattern(suit),
 		pattern.NewHAlternatePattern(suit),
