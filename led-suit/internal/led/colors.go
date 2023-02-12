@@ -44,7 +44,7 @@ var ORANGE = color.RGBA{
 	255,
 }
 var BRIGHT_GREEN = color.RGBA{
-	uint8(128 * BRIGHTNESS),
+	uint8(192 * BRIGHTNESS),
 	uint8(255 * BRIGHTNESS),
 	0,
 	255,

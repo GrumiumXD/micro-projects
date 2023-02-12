@@ -25,7 +25,7 @@ func NewGame() *Game {
 		pattern.NewAmmeliePattern(suit, led.ORANGE),
 		pattern.NewTrafficPattern(suit),
 		pattern.NewHueShiftPattern(suit),
-		pattern.NewHAlternatePattern(suit),
+		pattern.NewTetrisPattern(suit, 0),
 		pattern.NewHeartPattern(suit),
 		pattern.NewBlinkyPattern(suit),
 	}
