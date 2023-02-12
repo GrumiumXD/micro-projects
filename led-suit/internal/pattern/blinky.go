@@ -6,11 +6,11 @@ import (
 )
 
 type Blinky struct {
-	suit *led.LedSuit
+	suit led.LedSuit
 	init bool
 }
 
-func NewBlinkyPattern(suit *led.LedSuit) Pattern {
+func NewBlinkyPattern(suit led.LedSuit) Pattern {
 	return &Blinky{
 		suit: suit,
 		init: false,

@@ -6,14 +6,14 @@ import (
 )
 
 type Alternate struct {
-	suit   *led.LedSuit
+	suit   led.LedSuit
 	pos    int8
 	left   bool
 	init   bool
 	length int8
 }
 
-func NewHAlternatePattern(suit *led.LedSuit) Pattern {
+func NewHAlternatePattern(suit led.LedSuit) Pattern {
 	c := suit.GetCount()
 
 	length := c.Leg + c.Body + c.Arm

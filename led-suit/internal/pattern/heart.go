@@ -6,13 +6,13 @@ import (
 )
 
 type Heart struct {
-	suit    *led.LedSuit
+	suit    led.LedSuit
 	timer   uint8
 	forward bool
 	init    bool
 }
 
-func NewHeartPattern(suit *led.LedSuit) Pattern {
+func NewHeartPattern(suit led.LedSuit) Pattern {
 	return &Heart{
 		suit:    suit,
 		timer:   0,

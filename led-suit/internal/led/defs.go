@@ -11,7 +11,7 @@ const (
 	RightArm
 	Heart
 
-	stripCount
+	StripCount
 )
 
 type LedCount struct {

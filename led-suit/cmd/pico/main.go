@@ -3,14 +3,14 @@ package main
 import (
 	"ledsuit/internal/config"
 	"ledsuit/internal/input"
-	"ledsuit/internal/led"
 	"ledsuit/internal/pattern"
+	"ledsuit/internal/physical"
 	"time"
 )
 
 func main() {
 
-	suit := led.NewLedSuit(config.Selection)
+	suit := physical.NewLedSuit(config.Selection)
 
 	var patterns = [8]pattern.Pattern{
 		pattern.NewHellsBellsPattern(suit),
