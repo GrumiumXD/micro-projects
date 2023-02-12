@@ -19,8 +19,8 @@ func NewGame() *Game {
 	suit := NewSuit("GR")
 
 	var patterns = [8]pattern.Pattern{
-		pattern.NewDemoPattern(suit),
-		pattern.NewLegsOnlyPattern(suit),
+		pattern.NewDarkPattern(suit),
+		pattern.NewHellsBellsPattern(suit),
 		pattern.NewBodyOnlyPattern(suit),
 		pattern.NewTrafficPattern(suit),
 		pattern.NewHueShiftPattern(suit),
@@ -85,7 +85,7 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
 func main() {
 
 	ebiten.SetWindowSize(800, 800)
-	ebiten.SetTPS(18)
+	ebiten.SetTPS(17)
 	ebiten.SetWindowTitle("Led suit test ground)")
 	if err := ebiten.RunGame(NewGame()); err != nil {
 		log.Fatal(err)

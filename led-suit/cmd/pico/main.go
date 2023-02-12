@@ -12,17 +12,55 @@ func main() {
 
 	suit := physical.NewLedSuit(config.Selection)
 
-	var patterns = [8]pattern.Pattern{
-		pattern.NewHellsBellsPattern(suit),
-		pattern.NewDarkPattern(suit),
-		pattern.NewBodyOnlyPattern(suit),
-		pattern.NewTrafficPattern(suit),
-		pattern.NewHueShiftPattern(suit),
-		pattern.NewHAlternatePattern(suit),
-		pattern.NewHeartPattern(suit),
-		pattern.NewBlinkyPattern(suit),
+	var patterns [8]pattern.Pattern
+
+	if config.Selection == "GR" {
+		patterns = [8]pattern.Pattern{
+			pattern.NewHellsBellsPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+		}
+	} else if config.Selection == "RS" {
+		patterns = [8]pattern.Pattern{
+			pattern.NewHellsBellsPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+		}
+	} else if config.Selection == "BK" {
+		patterns = [8]pattern.Pattern{
+			pattern.NewHellsBellsPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+		}
+	} else if config.Selection == "GB" {
+		patterns = [8]pattern.Pattern{
+			pattern.NewHellsBellsPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+			pattern.NewDarkPattern(suit),
+		}
 	}
 
+	// start pattern
 	current_pattern := 1
 	controller := input.NewController(current_pattern)
 

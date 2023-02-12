@@ -6,7 +6,7 @@ import (
 )
 
 type HellsBells struct {
-	suit   *led.LedSuit
+	suit   led.LedSuit
 	init   bool
 	time   uint32
 	fadeIn bool
@@ -15,7 +15,7 @@ type HellsBells struct {
 const FADE_IN_TICKS = 6
 const FADE_OUT_TICKS = 60
 
-func NewHellsBellsPattern(suit *led.LedSuit) Pattern {
+func NewHellsBellsPattern(suit led.LedSuit) Pattern {
 	return &HellsBells{
 		suit:   suit,
 		init:   false,
