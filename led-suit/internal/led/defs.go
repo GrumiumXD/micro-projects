@@ -38,27 +38,27 @@ func GetLedCount(pid string) *LedCount {
 		}
 	case "RS":
 		return &LedCount{
-			Leg:     22,
-			Body:    19,
-			Arm:     15,
+			Leg:     25,
+			Body:    22,
+			Arm:     16,
 			Heart:   9,
 			HBStart: 9,
 			HBEnd:   13,
 		}
 	case "BK":
 		return &LedCount{
-			Leg:     22,
-			Body:    19,
-			Arm:     15,
+			Leg:     24,
+			Body:    21,
+			Arm:     16,
 			Heart:   9,
 			HBStart: 9,
 			HBEnd:   13,
 		}
 	case "GB":
 		return &LedCount{
-			Leg:     22,
-			Body:    19,
-			Arm:     15,
+			Leg:     24,
+			Body:    21,
+			Arm:     16,
 			Heart:   9,
 			HBStart: 9,
 			HBEnd:   13,
