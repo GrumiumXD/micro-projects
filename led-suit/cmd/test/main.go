@@ -1,57 +1,93 @@
 package main
 
 import (
-	"image/color"
+	"ledsuit/internal/pattern"
 	"log"
 
 	"github.com/hajimehoshi/ebiten/v2"
-)
-
-const (
-	screenWidth  = 320
-	screenHeight = 240
-
-	frameOX     = 0
-	frameOY     = 32
-	frameWidth  = 32
-	frameHeight = 32
-	frameCount  = 8
-)
-
-var (
-	runnerImage *ebiten.Image
+	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
 
 type Game struct {
-	count int
+	current_pattern int
+	suit            *Suit
+	pattern         [8]pattern.Pattern
+	tick            uint32
+}
+
+func NewGame() *Game {
+	suit := NewSuit("GR")
+
+	var patterns = [8]pattern.Pattern{
+		pattern.NewDemoPattern(suit),
+		pattern.NewLegsOnlyPattern(suit),
+		pattern.NewBodyOnlyPattern(suit),
+		pattern.NewTrafficPattern(suit),
+		pattern.NewHueShiftPattern(suit),
+		pattern.NewHAlternatePattern(suit),
+		pattern.NewHeartPattern(suit),
+		pattern.NewBlinkyPattern(suit),
+	}
+
+	return &Game{
+		current_pattern: 0,
+		suit:            suit,
+		pattern:         patterns,
+		tick:            0,
+	}
+}
+
+func (g *Game) checkInput() {
+	new_pattern := g.current_pattern
+	if inpututil.IsKeyJustPressed(ebiten.Key0) {
+		new_pattern = 0
+	} else if inpututil.IsKeyJustPressed(ebiten.Key1) {
+		new_pattern = 1
+	} else if inpututil.IsKeyJustPressed(ebiten.Key2) {
+		new_pattern = 2
+	} else if inpututil.IsKeyJustPressed(ebiten.Key3) {
+		new_pattern = 3
+	} else if inpututil.IsKeyJustPressed(ebiten.Key4) {
+		new_pattern = 4
+	} else if inpututil.IsKeyJustPressed(ebiten.Key5) {
+		new_pattern = 5
+	} else if inpututil.IsKeyJustPressed(ebiten.Key6) {
+		new_pattern = 6
+	} else if inpututil.IsKeyJustPressed(ebiten.Key7) {
+		new_pattern = 7
+	}
+
+	if new_pattern != g.current_pattern {
+		g.pattern[g.current_pattern].Reset()
+		g.current_pattern = new_pattern
+	}
 }
 
 func (g *Game) Update() error {
-	g.count++
+	g.checkInput()
+
+	g.pattern[g.current_pattern].SetLEDs(g.tick)
+	g.suit.Display()
+
+	g.tick++
+
 	return nil
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
-	op := &ebiten.DrawImageOptions{}
-	op.GeoM.Translate(-float64(frameWidth)/2, -float64(frameHeight)/2)
-	op.GeoM.Translate(screenWidth/2, screenHeight/2)
-	screen.DrawImage(runnerImage, op)
+	g.suit.Draw(screen)
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
-	return screenWidth, screenHeight
+	return 800, 800
 }
 
 func main() {
 
-	runnerImage = ebiten.NewImage(frameWidth, frameHeight)
-	runnerImage.Fill(color.RGBA{
-		255, 255, 0, 255,
-	})
-
-	ebiten.SetWindowSize(screenWidth*2, screenHeight*2)
-	ebiten.SetWindowTitle("Animation (Ebiten Demo)")
-	if err := ebiten.RunGame(&Game{}); err != nil {
+	ebiten.SetWindowSize(800, 800)
+	ebiten.SetTPS(18)
+	ebiten.SetWindowTitle("Led suit test ground)")
+	if err := ebiten.RunGame(NewGame()); err != nil {
 		log.Fatal(err)
 	}
 }
