@@ -13,8 +13,8 @@ func main() {
 	suit := led.NewLedSuit(config.Selection)
 
 	var patterns = [8]pattern.Pattern{
-		pattern.NewDemoPattern(suit),
-		pattern.NewLegsOnlyPattern(suit),
+		pattern.NewHellsBellsPattern(suit),
+		pattern.NewDarkPattern(suit),
 		pattern.NewBodyOnlyPattern(suit),
 		pattern.NewTrafficPattern(suit),
 		pattern.NewHueShiftPattern(suit),
@@ -23,8 +23,8 @@ func main() {
 		pattern.NewBlinkyPattern(suit),
 	}
 
-	current_pattern := 0
-	controller := input.NewController()
+	current_pattern := 1
+	controller := input.NewController(current_pattern)
 
 	var tick uint32 = 0
 
