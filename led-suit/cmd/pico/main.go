@@ -19,7 +19,7 @@ func main() {
 		patterns = [8]pattern.Pattern{
 			pattern.NewHellsBellsPattern(suit),
 			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewStreetPattern(suit),
 			pattern.NewAmmelieAltPattern(suit, led.CYAN),
 			pattern.NewDarkPattern(suit),
 			pattern.NewTetrisPattern(suit, 0),
@@ -30,7 +30,7 @@ func main() {
 		patterns = [8]pattern.Pattern{
 			pattern.NewHellsBellsPattern(suit),
 			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewStreetPattern(suit),
 			pattern.NewAmmelieAltPattern(suit, led.ORANGE),
 			pattern.NewDarkPattern(suit),
 			pattern.NewTetrisPattern(suit, 1),
@@ -41,7 +41,7 @@ func main() {
 		patterns = [8]pattern.Pattern{
 			pattern.NewHellsBellsPattern(suit),
 			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewKitPattern(suit),
 			pattern.NewAmmelieAltPattern(suit, led.BRIGHT_GREEN),
 			pattern.NewDarkPattern(suit),
 			pattern.NewTetrisPattern(suit, 2),
@@ -52,7 +52,7 @@ func main() {
 		patterns = [8]pattern.Pattern{
 			pattern.NewHellsBellsPattern(suit),
 			pattern.NewDarkPattern(suit),
-			pattern.NewDarkPattern(suit),
+			pattern.NewKitPattern(suit),
 			pattern.NewAmmelieAltPattern(suit, led.YELLOW),
 			pattern.NewDarkPattern(suit),
 			pattern.NewTetrisPattern(suit, 4),
