@@ -68,6 +68,14 @@ var BLACK = color.RGBA{
 	255,
 }
 
+func Dim(col color.RGBA, value float64) color.RGBA {
+	r := float64(col.R) * value
+	g := float64(col.G) * value
+	b := float64(col.B) * value
+
+	return color.RGBA{uint8(r), uint8(g), uint8(b), col.A}
+}
+
 func FillBuffer(buf []color.RGBA, color color.RGBA) {
 	buf[0] = color
 

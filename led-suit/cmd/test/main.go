@@ -22,7 +22,7 @@ func NewGame() *Game {
 	var patterns = [8]pattern.Pattern{
 		pattern.NewDarkPattern(suit),
 		pattern.NewHellsBellsPattern(suit),
-		pattern.NewAmmeliePattern(suit, led.ORANGE),
+		pattern.NewAmmelieAltPattern(suit, led.ORANGE),
 		pattern.NewTrafficPattern(suit),
 		pattern.NewHueShiftPattern(suit),
 		pattern.NewTetrisPattern(suit, 0),
